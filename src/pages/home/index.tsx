@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import { useEffect, useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { message } from 'antd'

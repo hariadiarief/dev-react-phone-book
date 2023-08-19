@@ -12,6 +12,7 @@ const Layout = lazy(async () => await import('components/layout'))
 const Home = lazy(async () => await import('pages/home'))
 const About = lazy(async () => await import('pages/about'))
 const Example = lazy(async () => await import('pages/example'))
+const FormContact = lazy(async () => await import('pages/formContact'))
 
 export const publicRoutes = createBrowserRouter(
     createRoutesFromElements(
@@ -37,6 +38,22 @@ export const publicRoutes = createBrowserRouter(
                 element={
                     <Suspense fallback={<></>}>
                         <Example />
+                    </Suspense>
+                }
+            />
+            <Route
+                path='form/:contactID'
+                element={
+                    <Suspense fallback={<></>}>
+                        <FormContact />
+                    </Suspense>
+                }
+            />
+            <Route
+                path='form'
+                element={
+                    <Suspense fallback={<></>}>
+                        <FormContact />
                     </Suspense>
                 }
             />

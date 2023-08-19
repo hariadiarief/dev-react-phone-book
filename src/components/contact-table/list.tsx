@@ -4,6 +4,7 @@ import { Button, Grid, Input, Table } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import { IContact } from 'constant/form-contant'
 import { ColumnsType } from 'antd/lib/table'
+import { useNavigate } from 'react-router-dom'
 
 const { useBreakpoint } = Grid
 
@@ -21,6 +22,8 @@ interface IProps {
 }
 
 export const List = (props: IProps) => {
+    let navigate = useNavigate()
+
     const {
         searchVal,
         setSearchVal,
@@ -78,7 +81,7 @@ export const List = (props: IProps) => {
                                 `}
                             />
                         }
-                        // onClick={() => router.push('/form-contact')}
+                        onClick={() => navigate('/form')}
                         shape='round'
                         type='primary'
                     >

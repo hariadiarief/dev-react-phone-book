@@ -8,6 +8,7 @@ import {
 import { css } from '@emotion/react'
 import { Button, Space, Tag } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
+import { useNavigate } from 'react-router-dom'
 
 interface IProps {
     handleFavoriteToggle: (record: IContact) => void
@@ -20,6 +21,8 @@ export const Config = ({
     handleFavoriteToggle,
     refetchContactsCount,
 }: IProps): ColumnsType<IContact> => {
+    let navigate = useNavigate()
+
     return [
         {
             dataIndex: 'id',
@@ -89,10 +92,7 @@ export const Config = ({
                     size='middle'
                 >
                     <Button
-                        onClick={
-                            () => null
-                            // router.push(`/form-contact/${record.id}`)
-                        }
+                        onClick={() => navigate(`/form/${record.id}`)}
                         icon={<EditOutlined />}
                         shape='round'
                     >
