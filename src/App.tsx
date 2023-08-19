@@ -4,6 +4,9 @@ import { publicRoutes } from 'routes'
 import { AppProvider } from './contexts/appContext'
 import { useAppContext } from 'contexts/appContext'
 
+import { ApolloProvider } from '@apollo/client'
+import client from './apollo-client'
+
 const App = () => {
     return (
         <AppProvider>
@@ -17,13 +20,15 @@ const Main = () => {
     const { defaultAlgorithm, darkAlgorithm } = theme
 
     return (
-        <ConfigProvider
-            theme={{
-                algorithm: isDark ? darkAlgorithm : defaultAlgorithm,
-            }}
-        >
-            <RouterProvider router={publicRoutes} />
-        </ConfigProvider>
+        <ApolloProvider client={client}>
+            <ConfigProvider
+                theme={{
+                    algorithm: isDark ? darkAlgorithm : defaultAlgorithm,
+                }}
+            >
+                <RouterProvider router={publicRoutes} />
+            </ConfigProvider>
+        </ApolloProvider>
     )
 }
 
